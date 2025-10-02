@@ -42,11 +42,11 @@
                 </div>
                 <div class="card-body text-center">
                     <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Foto Profil">
-                    <h4 class="card-title">Nama Pengguna</h4>
+                    <h4 class="card-title">Farel Imam Maulana</h4>
                     <p class="text-muted">Web Developer</p>
                     <hr>
-                    <p class="card-text text-start"><i class="fas fa-envelope me-2"></i> email@contoh.com</p>
-                    <p class="card-text text-start"><i class="fas fa-phone me-2"></i> +62 812-3456-7890</p>
+                    <p class="card-text text-start"><i class="fas fa-envelope me-2"></i> Tesemail@gmail.com</p>
+                    <p class="card-text text-start"><i class="fas fa-phone me-2"></i> +62 812-3456-78</p>
                 </div>
             </div>
         </div>
