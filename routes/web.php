@@ -37,28 +37,36 @@ Route::get('/contact', function () {
 
 Route::get('/berita', function () {
 
-    $data_berita = [
+    
+    return view('berita', [
+        "title" => "Berita",
+        "beritas" => Berita::ambildata(),
+    ]);   
+});
+
+Route::get('/berita/{slug}', function ($slug) {
+
+         $data_berita = [
         [
-            "judul" => "Berita 1",
+            "judul" => "Hot News", 
+            "slug" => "hot-news", 
             "penulis" => "Saya",
             "konten" => "MU TIM KALAHAN"
         ],
         [
-            "judul" => "Berita 2",
+            "judul" => "Hot News 2",
+            "slug" => "hot-news-2",
             "penulis" => "Kamu",
             "konten" => "BARCA TIM KALAHAN"
         ],
         [
             "judul" => "Berita 3",
+            "slug" => "berita-3",
             "penulis" => "Dia",
             "konten" => "REMONTADA"
         ]
         ];
 
-    return view('berita', [
-
-        "title" => "Berita",
-        "beritas" => $data_berita,
-    ]);
+       
 });
 
