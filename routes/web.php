@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -46,27 +47,10 @@ Route::get('/berita', function () {
 
 Route::get('/berita/{slug}', function ($slug) {
 
-         $data_berita = [
-        [
-            "judul" => "Hot News", 
-            "slug" => "hot-news", 
-            "penulis" => "Saya",
-            "konten" => "MU TIM KALAHAN"
-        ],
-        [
-            "judul" => "Hot News 2",
-            "slug" => "hot-news-2",
-            "penulis" => "Kamu",
-            "konten" => "BARCA TIM KALAHAN"
-        ],
-        [
-            "judul" => "Berita 3",
-            "slug" => "berita-3",
-            "penulis" => "Dia",
-            "konten" => "REMONTADA"
-        ]
-        ];
-
+    return view('halamanberita', [
+        "title" => "Berita",
+        "new_berita" => Berita::caridata($slug),
+    ]);
        
 });
 

@@ -1,10 +1,7 @@
 <?php
 
 namespace App\Models;
-
-use App\Model\Berita;
 use Illuminate\Database\Eloquent\Model;
-
 
 class Berita extends Model
 {
@@ -31,12 +28,12 @@ class Berita extends Model
 
     public static function ambildata() 
     {
-        return self::$data_berita;
+        return Self::$data_berita;
     }
 
     public static function caridata($slug)
     {
-        $data_beritas = Self:: $data_berita;
+        $data_berita = Self:: $data_berita;
 
          $new_berita = [];
         foreach($data_berita as $berita) 
