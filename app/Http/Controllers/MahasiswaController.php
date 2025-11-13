@@ -17,4 +17,18 @@ class MahasiswaController extends Controller
             "title" => "Data Mahasiswa"
         ]);
     }
+
+    public function tambahdatamahasiswa()
+    {
+        return view('tambahdatamahasiswa', [
+            "title" => "Tambah Data Mahasiswa",
+        ]);
+    }
+
+    public function insertdata(Request $request)
+    {
+        Mahasiswa::create($request->all());
+
+        return redirect()->route('mahasiswa')->with('success', 'Data Berhasil Ditambahkan!');
+    }
 }

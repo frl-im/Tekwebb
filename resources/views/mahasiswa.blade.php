@@ -3,7 +3,8 @@
 @section('content')
 <h1 class="text-center">Data Mahasiswa</h1>
     <div class="row mt-5">
-        <button type="button" class="btn btn-success mb-2">Tambah Data</button>
+      <a href="/tambahdatamahasiswa">
+        <button type="button" class="btn btn-success mb-2">Tambah Data</button> </a>
         <table class="table">
   <thead>
     <tr>
@@ -35,6 +36,5 @@
   </tbody>
 </table>
     </div>
-    <h1>Data Mahasiswa</h1>
 
 @endsection

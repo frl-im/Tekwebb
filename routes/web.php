@@ -43,3 +43,7 @@ Route::get('/berita',[BeritaController::class, 'index']);
 Route::get('/berita/{slug}', [BeritaController::class, 'tampildata']);
 
 Route::get('/mahasiswa',[MahasiswaController::class, 'index'])->name('mahasiswa');
+
+Route::get('/tambahdatamahasiswa', [MahasiswaController::class, 'tambahdatamahasiswa'] )->name('tambahdatamahasiswa');
+
+Route::post('/insertdata', [MahasiswaController::class, 'insertdata'] )->name('insertdata');
