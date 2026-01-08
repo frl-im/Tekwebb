@@ -50,4 +50,13 @@ class MahasiswaController extends Controller
 
          return redirect()->route('mahasiswa')->with('success', 'Data Berhasil Diedit!');
     }
+
+    public function destroy($id)
+    {
+        $data = Mahasiswa::findOrFail($id);
+
+        $data->delete();
+
+        return redirect()->route('mahasiswa')->with('success', 'Data Berhasil Dihapus!');
+    }
 }

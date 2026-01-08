@@ -2,12 +2,13 @@
 
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\AuthController;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome', [
-        "title" => "welcome"
+        "title" => "Home"
     ]);
 });
 
@@ -42,12 +43,26 @@ Route::get('/berita',[BeritaController::class, 'index']);
 
 Route::get('/berita/{slug}', [BeritaController::class, 'tampildata']);
 
-Route::get('/mahasiswa',[MahasiswaController::class, 'index'])->name('mahasiswa');
+Route::middleware('auth')->group(function () {
+    Route::get('/mahasiswa',[MahasiswaController::class, 'index'])->name('mahasiswa');
 
-Route::get('/tambahdatamahasiswa', [MahasiswaController::class, 'tambahdatamahasiswa'] )->name('tambahdatamahasiswa');
+    Route::get('/tambahdatamahasiswa', [MahasiswaController::class, 'tambahdatamahasiswa'] )->name('tambahdatamahasiswa');
 
-Route::post('/insertdata', [MahasiswaController::class, 'insertdata'] )->name('insertdata');
+    Route::post('/insertdata', [MahasiswaController::class, 'insertdata'] )->name('insertdata');
 
-Route::get('/tampildata/{id}',[MahasiswaController::class, 'tampildata'])->name('tampildata');
+    Route::get('/tampildata/{id}',[MahasiswaController::class, 'tampildata'])->name('tampildata');
 
-Route::post('/editdata/{id}', [MahasiswaController::class, 'editdata'] )->name('editdata');
+    Route::post('/editdata/{id}', [MahasiswaController::class, 'editdata'] )->name('editdata');
+
+    Route::delete('/mahasiswa/{id}', [MahasiswaController::class, 'destroy'] )->name('mahasiswa.destroy');
+});
+
+// Auth routes
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.attempt');
+    Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+    Route::post('/register', [AuthController::class, 'register'])->name('register.perform');
+});
+
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
