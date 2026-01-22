@@ -6,8 +6,8 @@ use App\Http\Controllers\AuthController;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/home', function () {
-    return view('home', [
+Route::get('/', function () {
+    return view('weelcome', [
         "title" => "Home"
     ]);
 });
